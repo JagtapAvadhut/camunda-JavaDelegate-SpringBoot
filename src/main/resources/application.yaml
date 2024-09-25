@@ -1,0 +1,8 @@
+camunda.bpm.admin-user:
+  id: aj
+  password: aj
+#spring:
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/camunda
+#    username: root
+#    password: root
