@@ -16,13 +16,18 @@
     <bpmn:sequenceFlow id="Flow_0vegknv" sourceRef="Activity_1v8e4ye" targetRef="Activity_1ek3u9x" />
     <bpmn:userTask id="Activity_1p40gyb" name="hr" camunda:assignee="hr">
       <bpmn:incoming>Flow_1qdtdsq</bpmn:incoming>
-      <bpmn:outgoing>Flow_19xptk4</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0su12lk</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_1qdtdsq" sourceRef="Activity_1ek3u9x" targetRef="Activity_1p40gyb" />
-    <bpmn:endEvent id="Event_088noko">
-      <bpmn:incoming>Flow_19xptk4</bpmn:incoming>
+    <bpmn:serviceTask id="Activity_01rkvi1" name="Notification" camunda:delegateExpression="#{Notification}">
+      <bpmn:incoming>Flow_0su12lk</bpmn:incoming>
+      <bpmn:outgoing>Flow_0jex63s</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0su12lk" sourceRef="Activity_1p40gyb" targetRef="Activity_01rkvi1" />
+    <bpmn:endEvent id="Event_1y8wkor">
+      <bpmn:incoming>Flow_0jex63s</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="Flow_19xptk4" sourceRef="Activity_1p40gyb" targetRef="Event_088noko" />
+    <bpmn:sequenceFlow id="Flow_0jex63s" sourceRef="Activity_01rkvi1" targetRef="Event_1y8wkor" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1pboq8m">
@@ -41,8 +46,12 @@
         <dc:Bounds x="590" y="77" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_088noko_di" bpmnElement="Event_088noko">
-        <dc:Bounds x="752" y="99" width="36" height="36" />
+      <bpmndi:BPMNShape id="Activity_01rkvi1_di" bpmnElement="Activity_01rkvi1">
+        <dc:Bounds x="750" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1y8wkor_di" bpmnElement="Event_1y8wkor">
+        <dc:Bounds x="912" y="99" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0kgjn8c_di" bpmnElement="Flow_0kgjn8c">
         <di:waypoint x="215" y="117" />
@@ -56,9 +65,13 @@
         <di:waypoint x="530" y="117" />
         <di:waypoint x="590" y="117" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_19xptk4_di" bpmnElement="Flow_19xptk4">
+      <bpmndi:BPMNEdge id="Flow_0su12lk_di" bpmnElement="Flow_0su12lk">
         <di:waypoint x="690" y="117" />
-        <di:waypoint x="752" y="117" />
+        <di:waypoint x="750" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0jex63s_di" bpmnElement="Flow_0jex63s">
+        <di:waypoint x="850" y="117" />
+        <di:waypoint x="912" y="117" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
